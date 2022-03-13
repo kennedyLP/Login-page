@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Formulário</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .body-bg {
+      background: linear-gradient(90deg, rgb(59, 1, 88) 0%, rgb(68, 9, 131)35%, rgb(88, 23, 240) 100%);
+    }
+
+    .width-form {
+      max-width: 500px;
+    }
+
+    .height-form {
+      height: 600px;
+    }
+
+    .login-c {
+      color: rgba(0, 0, 0, 0.884);
+    }
+
+    .margin-t {
+      margin-top: 7vh;
+    }
+
+    button {
+      border: none;
+    }
+
+    .bg-button {
+      color: rgb(233, 231, 235);
+      background: linear-gradient(90deg, rgba(24, 0, 36, 1) 0%, rgb(69, 13, 129) 35%, rgba(76, 0, 255, 1) 100%);
+    }
+
+    .bg-button:hover {
+      color: rgb(233, 231, 235);
+    }
+
+    .paragraph-fz {
+      font-size: 1em;
+    }
+
+    input {
+      outline: none;
+      height: 50px;
+    }
+
+    .form-group span::before {
+      content: attr(data-placeholder);
+      position: absolute;
+      top: 63%;
+      left: 15px;
+      transform: translateY(-50%);
+      z-index: -1;
+      transition: .5s;
+    }
+
+    .form-group span::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(24, 0, 36, 1) 0%, rgb(69, 13, 129) 35%, rgba(76, 0, 255, 1) 100%);
+      transition: .5s;
+    }
+
+    .focus+span::before {
+      top: -5px;
+    }
+
+    .focus+span::after {
+      width: 90%;
+    }
+
+    @media (max-width:576px) {
+      .width-form {
+        max-width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body class="body-bg">
+
+  <form class="width-form height-form bg-light mx-auto mt-5 border rounded p-5">
+    <h1 class="text-center mt-3 login-c">Login</h1>
+
+    <div class="form-group row margin-t">
+      <div class="col-sm-10 col-md-12">
+        <input type="text" class="form-control-plaintext border-bottom w-100" id="staticEmail" placeholder="Email">
+        <span data-placeholder="Email"></span>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10 col-md-12">
+        <input type="password" class="form-control-plaintext border-bottom mt-3" id="inputPassword"
+          placeholder="Password">
+        <span data-placeholder="Password"></span>
+      </div>
+      <button type="button" class="btn bg-button shadow-none w-100 py-3 mt-5">Login</button>
+
+      <p class="paragraph-fz mx-auto margin-t">Não possui conta?<a class="text-center" href="">Cadastre-se</a></p>
+    </div>
+  </form>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+    $(".form-group input").on("focus", function () {
+      $(this).addClass("focus")
+    });
+
+    $(".form-group input").on("blur", function () {
+      if ($(this).val() == "")
+        $(this).removeClass("focus")
+    });
+  </script>
+</body>
+
+</html>
